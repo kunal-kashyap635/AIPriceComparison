@@ -17,7 +17,7 @@ def search_product_prices(product_name):
     data = requests.get(url, params=params).json()
 
     products = []
-    for item in data.get("shopping_results", [])[:5]:
+    for item in data.get("shopping_results", [])[:12]:
         products.append(
             {
                 "title": item.get("title", "N/A"),
