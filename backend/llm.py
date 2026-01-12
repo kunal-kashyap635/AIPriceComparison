@@ -1,5 +1,11 @@
 from openai import OpenAI
-from config import GEMINI_API_KEY
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+print(GEMINI_API_KEY)
 
 client = OpenAI(
     api_key=GEMINI_API_KEY,

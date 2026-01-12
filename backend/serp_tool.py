@@ -1,7 +1,11 @@
 import requests
-from config import SERP_API_KEY
+from dotenv import load_dotenv
+import os
 
-# print(SERP_API_KEY)
+load_dotenv()
+SERP_API_KEY = os.getenv("SERP_API_KEY")
+
+print(SERP_API_KEY)
 
 def search_product_prices(product_name):
     url = "https://serpapi.com/search.json"
@@ -17,7 +21,7 @@ def search_product_prices(product_name):
     data = requests.get(url, params=params).json()
 
     products = []
-    for item in data.get("shopping_results", [])[:12]:
+    for item in data.get("shopping_results", [])[:15]:
         products.append(
             {
                 "title": item.get("title", "N/A"),
